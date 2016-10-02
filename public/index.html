@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KHU-MARO</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <!-- END META -->
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css' />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/materialadmin.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/material-design-iconic-font.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/jquery-ui/jquery-ui-theme.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/fullcalendar/fullcalendar.css" />
+    <!-- END STYLESHEETS -->
+
+</head>
+
+<body class="menubar-hoverable header-fixed ">
+
+    <!-- BEGIN HEADER-->
+    <header id="header">
+      <div class="headerbar-left">
+        <ul class="header-nav header-nav-options">
+          <li class="header-nav-brand" >
+            <div class="brand-holder">
+              <a href="/">
+                <span class="text-lg text-bold text-primary">MARO</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+              <i class="fa fa-bars"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!-- END HEADER-->
+
+    <!-- BEGIN BASE-->
+    <div id="base">
+
+        <!-- BEGIN OFFCANVAS LEFT -->
+        <div class="offcanvas">
+        </div>
+        <!--end .offcanvas-->
+        <!-- END OFFCANVAS LEFT -->
+
+        <!-- BEGIN CONTENT-->
+        <div id="content">
+            <section>
+                <div class="section-header">
+                    <ol class="breadcrumb">
+                        <li class="active">Calendar</li>
+                    </ol>
+                </div>
+                <div class="section-body">
+                    <div class="row">
+
+                        <!-- BEGIN CALENDAR EVENTS -->
+                        <div class="col-sm-3">
+                            <h2>예약 현황</h2>
+                            <p class="opacity-75">예약을 원하시면 항목을 드래그하여 달력에 놓으세요</p>
+                            <br/>
+
+                            <br/>
+                            <ul class="list divider-full-bleed list-events">
+                                <li class="tile">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Call clients for follow-up</div>
+                                        <div class="tile-icon"><i class="fa fa-circle-thin text-primary"></i></div>
+                                    </div>
+                                </li>
+                                <li class="tile" data-class-name="event-warning">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Schedule meeting</div>
+                                        <div class="tile-icon"><i class="fa fa-circle-thin text-warning"></i></div>
+                                    </div>
+                                </li>
+                                <li class="tile" data-class-name="event-info">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Upload files to server</div>
+                                        <div class="tile-icon"><i class="fa fa-circle-thin text-info"></i></div>
+                                    </div>
+                                </li>
+                                <li class="tile" data-class-name="event-success">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Book flight for holiday</div>
+                                        <div class="tile-icon"><i class="fa fa-circle-thin text-success"></i></div>
+                                    </div>
+                                </li>
+                                <li class="tile" data-class-name="event-danger">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Receive shipment</div>
+                                        <div class="tile-icon"><i class="fa fa-circle-thin text-danger"></i></div>
+                                    </div>
+                                </li>
+                                <li class="tile" data-class-name="event-default">
+                                    <div class="tile-content">
+                                        <div class="tile-text">Go to concert</div>
+                                        <div class="tile-icon"><i class="fa fa-circle-thin text-default"></i></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--end .col -->
+                        <!-- END CALENDAR EVENTS -->
+
+                        <!-- BEGIN CALENDAR -->
+                        <div class="col-sm-9">
+                            <div class="card">
+                                <div class="card-head style-primary">
+                                    <header>
+                                        <span class="selected-day">&nbsp;</span> &nbsp;<small class="selected-date">&nbsp;</small>
+                                    </header>
+                                    <div class="tools">
+                                        <div class="btn-group">
+                                            <a id="calender-prev" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-angle-left"></i></a>
+                                            <a id="calender-next" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                        <div class="btn-group pull-right">
+                                        </div>
+                                    </div>
+                                    <ul class="nav nav-tabs tabs-text-contrast tabs-accent" data-toggle="tabs">
+                                        <li data-mode="month" class="active"><a href="#">Month</a></li>
+                                        <li data-mode="agendaWeek"><a href="#">Week</a></li>
+                                        <li data-mode="agendaDay"><a href="#">Day</a></li>
+                                        <li data-mode="agendaDay"><a href="#">Toay</a></li>
+                                    </ul>
+                                </div>
+                                <!--end .card-head -->
+                                <div class="card-body no-padding">
+                                    <div id="calendar"></div>
+                                </div>
+                                <!--end .card-body -->
+                            </div>
+                            <!--end .card -->
+                        </div>
+                        <!--end .col -->
+                        <!-- END CALENDAR -->
+
+                    </div>
+                    <!--end .row -->
+                </div>
+                <!--end .section-body -->
+            </section>
+        </div>
+        <!--end #content-->
+        <!-- END CONTENT -->
+
+        <!-- BEGIN MENUBAR-->
+        <div id="menubar" class="menubar-inverse ">
+            <div class="menubar-fixed-panel">
+                <div>
+                    <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+
+            </div>
+            <div class="menubar-scroll-panel">
+
+                <!-- BEGIN MAIN MENU -->
+                <ul id="main-menu" class="gui-controls">
+
+                    <!-- BEGIN 예약 현황 -->
+                    <li>
+                        <a href="/">
+                            <div class="gui-icon"><i class="md md-home"></i></div>
+                            <span class="title">예약 현황</span>
+                        </a>
+                    </li>
+                    <!--end /menu-li -->
+                    <!-- END 예약현황 -->
+
+                    <!-- BEGIN 로그인 -->
+                    <li>
+                        <a href="/">
+                            <div class="gui-icon"><i class="md md-email"></i></div>
+                            <span class="title">로그인</span>
+                        </a>
+                    </li>
+                    <!-- END 로그인 -->
+
+                    <!-- BEGIN 예약하기 -->
+                    <li>
+                        <a href="/">
+                            <div class="gui-icon"><i class="md md-web"></i></div>
+                            <span class="title">예약하기</span>
+                        </a>
+                    </li>
+                    <!--end /menu-li -->
+                    <!-- END 예약하기 -->
+                </ul>
+                <!--end .main-menu -->
+                <!-- END MAIN MENU -->
+
+                <div class="menubar-foot-panel">
+                    <small class="no-linebreak hidden-folded">
+							<span class="opacity-75">Copyright &copy; 2016</span> <strong>경희대학교 동아리 마로</strong>
+						</small>
+                </div>
+            </div>
+            <!--end .menubar-scroll-panel-->
+        </div>
+        <!--end #menubar-->
+        <!-- END MENUBAR -->
+
+		</div><!--end #base-->
+		<!-- END BASE -->
+
+		<!-- BEGIN JAVASCRIPT -->
+		<script src="assets/js/libs/jquery/jquery-1.11.2.min.js "></script>
+		<script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js "></script>
+		<script src="assets/js/libs/jquery-ui/jquery-ui.min.js "></script>
+		<script src="assets/js/libs/bootstrap/bootstrap.min.js "></script>
+		<script src="assets/js/libs/spin.js/spin.min.js "></script>
+		<script src="assets/js/libs/autosize/jquery.autosize.min.js "></script>
+		<script src="assets/js/libs/moment/moment.min.js "></script>
+		<script src="assets/js/libs/nanoscroller/jquery.nanoscroller.min.js "></script>
+		<script src="assets/js/libs/fullcalendar/fullcalendar.min.js "></script>
+		<script src="assets/js/core/source/App.js "></script>
+		<script src="assets/js/core/source/AppNavigation.js "></script>
+		<script src="assets/js/core/source/AppOffcanvas.js "></script>
+		<script src="assets/js/core/source/AppCard.js "></script>
+		<script src="assets/js/core/source/AppForm.js "></script>
+		<script src="assets/js/core/source/AppNavSearch.js "></script>
+		<script src="assets/js/core/source/AppVendor.js "></script>
+		<script src="assets/js/core/demo/Demo.js "></script>
+		<script src="assets/js/core/demo/DemoCalendar.js "></script>
+		<!-- END JAVASCRIPT -->
+
+	</body>
+</html>

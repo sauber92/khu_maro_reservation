@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KHU-MARO</title>
+
+    <!-- BEGIN META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="your,keywords">
+    <meta name="description" content="Short explanation about this website">
+    <!-- END META -->
+
+    <!-- BEGIN STYLESHEETS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css' />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/materialadmin.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/material-design-iconic-font.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/jquery-ui/jquery-ui-theme.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/fullcalendar/fullcalendar.css" />
+    <!-- END STYLESHEETS -->
+
+</head>
+
+<body class="menubar-hoverable header-fixed ">
+
+    <!-- BEGIN HEADER-->
+    <header id="header">
+        <div class="headerbar-left">
+            <ul class="header-nav header-nav-options">
+                <li class="header-nav-brand">
+                    <div class="brand-holder">
+                        <a href="/">
+                            <span class="text-lg text-bold text-primary">MARO 동방 예약 시스템</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- END HEADER-->
+
+    <!-- BEGIN BASE-->
+    <div id="base">
+
+        <!-- BEGIN OFFCANVAS LEFT -->
+        <div class="offcanvas">
+        </div>
+        <!--end .offcanvas-->
+        <!-- END OFFCANVAS LEFT -->
+
+        <!-- BEGIN CONTENT-->
+        <div id="content">
+            <section>
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-5">
+                        <!-- kakao login -->
+                        <a href="/oauth">
+                            <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div ui-view></div>
+                </div>
+            </section>
+            <!--end #content-->
+            <!-- END CONTENT -->
+
+            <!-- BEGIN MENUBAR-->
+            <div id="menubar" class="menubar-inverse ">
+                <div class="menubar-fixed-panel">
+                    <div>
+                        <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="menubar-scroll-panel">
+
+                    <!-- BEGIN MAIN MENU -->
+                    <ul id="main-menu" class="gui-controls">
+
+                        <!-- BEGIN 예약 현황 -->
+                        <li>
+                            <a href="/">
+                                <div class="gui-icon"><i class="md md-home"></i></div>
+                                <span class="title">예약 현황</span>
+                            </a>
+                        </li>
+                        <!--end /menu-li -->
+                        <!-- END 예약현황 -->
+
+                        <!-- BEGIN 예약하기 -->
+                        <li>
+                            <a href="/">
+                                <div class="gui-icon"><i class="md md-web"></i></div>
+                                <span class="title">예약하기</span>
+                            </a>
+                        </li>
+                        <!--end /menu-li -->
+                        <!-- END 예약하기 -->
+
+                        <!-- BEGIN 로그인 -->
+                        <li>
+                            <a href="/login.html">
+                                <div class="gui-icon"><i class="md md-email"></i></div>
+                                <span class="title">로그인</span>
+                            </a>
+                        </li>
+                        <!-- END 로그인 -->
+                    </ul>
+                    <!--end .main-menu -->
+                    <!-- END MAIN MENU -->
+
+                    <div class="menubar-foot-panel">
+                        <small class="no-linebreak hidden-folded">
+							<span class="opacity-75">Copyright &copy; 2016</span> <strong>경희대학교 동아리 마로</strong>
+						</small>
+                    </div>
+                </div>
+                <!--end .menubar-scroll-panel-->
+            </div>
+            <!--end #menubar-->
+            <!-- END MENUBAR -->
+
+        </div>
+        <!--end #base-->
+        <!-- END BASE -->
+
+        <!-- BEGIN JAVASCRIPT -->
+        <script src="assets/js/libs/jquery/jquery-1.11.2.min.js "></script>
+        <script src="assets/js/libs/jquery/jquery-migrate-1.2.1.min.js "></script>
+        <script src="assets/js/libs/jquery-ui/jquery-ui.min.js "></script>
+        <script src="assets/js/libs/bootstrap/bootstrap.min.js "></script>
+        <script src="assets/js/libs/spin.js/spin.min.js "></script>
+        <script src="assets/js/libs/autosize/jquery.autosize.min.js "></script>
+        <script src="assets/js/libs/moment/moment.min.js "></script>
+        <script src="assets/js/libs/nanoscroller/jquery.nanoscroller.min.js "></script>
+        <script src="assets/js/libs/fullcalendar/fullcalendar.min.js "></script>
+        <script src="assets/js/core/source/App.js "></script>
+        <script src="assets/js/core/source/AppNavigation.js "></script>
+        <script src="assets/js/core/source/AppOffcanvas.js "></script>
+        <script src="assets/js/core/source/AppCard.js "></script>
+        <script src="assets/js/core/source/AppForm.js "></script>
+        <script src="assets/js/core/source/AppNavSearch.js "></script>
+        <script src="assets/js/core/source/AppVendor.js "></script>
+        <script src="assets/js/core/demo/Demo.js "></script>
+        <script src="assets/js/core/demo/DemoCalendar.js "></script>
+        <!-- END JAVASCRIPT -->
+
+</body>
+
+</html>

@@ -62,7 +62,7 @@
 	p._displayDate = function () {
 		var selectedDate = $('#calendar').fullCalendar('getDate');
 		$('.selected-day').html(moment(selectedDate).format("dddd"));
-		$('.selected-date').html(moment(selectedDate).format("DD MMMM YYYY"));
+		$('.selected-date').html(moment(selectedDate).format("MMMM DD, YYYY"));
 		$('.selected-year').html(moment(selectedDate).format("YYYY"));
 	};
 
@@ -126,7 +126,7 @@
 				copiedEventObject.start = date;
 				copiedEventObject.allDay = allDay;
 				copiedEventObject.className = originalEventObject.className;
-				
+
 				// render the event on the calendar
 				// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
 				$('#calendar').fullCalendar('renderEvent', copiedEventObject, true);

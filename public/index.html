@@ -32,7 +32,7 @@
           <li class="header-nav-brand" >
             <div class="brand-holder">
               <a href="/">
-                <span class="text-lg text-bold text-primary">MARO</span>
+                <span class="text-lg text-bold text-primary">MARO 동방 예약 시스템</span>
               </a>
             </div>
           </li>
@@ -60,19 +60,48 @@
             <section>
                 <div class="section-header">
                     <ol class="breadcrumb">
-                        <li class="active">Calendar</li>
+                        <li class="active">예약 현황</li>
                     </ol>
                 </div>
                 <div class="section-body">
                     <div class="row">
 
+
+
+                        <!-- BEGIN CALENDAR -->
+                        <div class="col-sm-9">
+                            <div class="card">
+                                <div class="card-head style-primary">
+                                    <header>
+                                        <span class="selected-day">&nbsp;</span> &nbsp;<small class="selected-date">&nbsp;</small>
+                                    </header>
+                                    <div class="tools">
+                                        <div class="btn-group">
+                                            <a id="calender-prev" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-angle-left"></i></a>
+                                            <a id="calender-next" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-angle-right"></i></a>
+                                        </div>
+                                        <div class="btn-group pull-right">
+                                        </div>
+                                    </div>
+                                    <ul class="nav nav-tabs tabs-text-contrast tabs-accent" data-toggle="tabs">
+                                        <li data-mode="month" class="active"><a href="#">Month</a></li>
+                                        <li data-mode="agendaWeek"><a href="#">Week</a></li>
+                                        <li data-mode="agendaDay"><a href="#">Day</a></li>
+                                        <li data-mode="agendaDay"><a href="#">Toay</a></li>
+                                    </ul>
+                                </div>
+                                <!--end .card-head -->
+                                <div class="card-body no-padding">
+                                    <div id="calendar"></div>
+                                </div>
+                                <!--end .card-body -->
+                            </div>
+                            <!--end .card -->
+                        </div>
+                        <!--end .col -->
+                        <!-- END CALENDAR -->
                         <!-- BEGIN CALENDAR EVENTS -->
                         <div class="col-sm-3">
-                            <h2>예약 현황</h2>
-                            <p class="opacity-75">예약을 원하시면 항목을 드래그하여 달력에 놓으세요</p>
-                            <br/>
-
-                            <br/>
                             <ul class="list divider-full-bleed list-events">
                                 <li class="tile">
                                     <div class="tile-content">
@@ -114,40 +143,6 @@
                         </div>
                         <!--end .col -->
                         <!-- END CALENDAR EVENTS -->
-
-                        <!-- BEGIN CALENDAR -->
-                        <div class="col-sm-9">
-                            <div class="card">
-                                <div class="card-head style-primary">
-                                    <header>
-                                        <span class="selected-day">&nbsp;</span> &nbsp;<small class="selected-date">&nbsp;</small>
-                                    </header>
-                                    <div class="tools">
-                                        <div class="btn-group">
-                                            <a id="calender-prev" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-angle-left"></i></a>
-                                            <a id="calender-next" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-angle-right"></i></a>
-                                        </div>
-                                        <div class="btn-group pull-right">
-                                        </div>
-                                    </div>
-                                    <ul class="nav nav-tabs tabs-text-contrast tabs-accent" data-toggle="tabs">
-                                        <li data-mode="month" class="active"><a href="#">Month</a></li>
-                                        <li data-mode="agendaWeek"><a href="#">Week</a></li>
-                                        <li data-mode="agendaDay"><a href="#">Day</a></li>
-                                        <li data-mode="agendaDay"><a href="#">Toay</a></li>
-                                    </ul>
-                                </div>
-                                <!--end .card-head -->
-                                <div class="card-body no-padding">
-                                    <div id="calendar"></div>
-                                </div>
-                                <!--end .card-body -->
-                            </div>
-                            <!--end .card -->
-                        </div>
-                        <!--end .col -->
-                        <!-- END CALENDAR -->
-
                     </div>
                     <!--end .row -->
                 </div>

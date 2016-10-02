@@ -110,6 +110,7 @@
 		var m = date.getMonth();
 		var y = date.getFullYear();
 
+
 		$('#calendar').fullCalendar({
 			height: 700,
 			header: false,

@@ -139,10 +139,10 @@
 			},
 			events: [
 				{
-					title: 'Birthday Party',
-					start: new Date(y, m, d + 1, 19, 0),
-					end: new Date(y, m, d + 1, 22, 30),
-					allDay: false
+					title: '정준영이 만듬',
+					start: new Date(y, m, d),
+					end: new Date(y, m, d),
+					allDay: true
 				}
 			],
 			eventRender: function (event, element) {

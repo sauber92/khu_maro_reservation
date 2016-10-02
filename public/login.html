@@ -66,7 +66,8 @@
                                 <span class="text-lg text-bold text-primary">로그인</span>
                                 <br/><br/>
                                 <p>
-                                    <a href="/oauth"><img src="kakao_account_login_btn.png" width="350" /></a>
+                                    <button class="kko-login-button" data-lang="kr" data-text="long" data-size="medium-narrow"></button>
+                                    <button class="kko-logout-button" data-lang="kr" data-text="long" data-size="medium-narrow"></button>
                                 </p>
 
                             </div>
@@ -80,6 +81,48 @@
                 <!--end .card -->
             </section>
         </div>
+
+        <script type="text/javascript">
+            kko.init('4f7ab073fbd374612aa92b46ac89d7bd');
+
+            // id가 login-button인 html 엘리먼트에 클릭 이벤트를 추가합니다.
+            document.getElementById('login-button').addEventListener('click', function() {
+                // Kakao 로그인
+                kko.login(function(res) {
+                        // 성공시 alert창에 메세지 표시
+                        alert('로그인 했어요!');
+
+                        // 첫번째 인수인 res에서 사용자 정보를 확인할 수 있습니다.
+                        console.log(res);
+                    },
+                    function(err) {
+                        alert('로그인에 실패했어요!');
+                        console.error(err);
+                    });
+            });
+
+            document.getElementById('logout-button').addEventListener('click', function() {
+                // Kakao 로그아웃
+                kko.logout(function(res) {
+                    if (res) {
+                        alert('로그아웃 되었습니다.');
+                    }
+                });
+            });
+
+            // Kakao SDK가 초기화 되면 init 이벤트가 발생합니다.
+            kko.on('init', function() {
+                // init 이벤트가 발생하면 kko.login() 함수가 실행되도록 합니다.
+                kko.login(function(res) {...
+                })
+            });
+
+            // Kakako Login에 성공하면 login 이벤트가 발생합니다.
+            kko.on('login', function() {
+                // login 이벤트가 발생하면 doSomthing() 함수가 실행되도록 합니다.
+                doSomething();
+            })
+        </script>
         <!--end #content-->
         <!-- END CONTENT -->
 
@@ -164,6 +207,8 @@
     <script src="assets/js/core/source/AppVendor.js "></script>
     <script src="assets/js/core/demo/Demo.js "></script>
     <script src="assets/js/core/demo/DemoCalendar.js "></script>
+    <script src="kko.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <!-- END JAVASCRIPT -->
 
 </body>

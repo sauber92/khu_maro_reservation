@@ -20,6 +20,8 @@
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/jquery-ui/jquery-ui-theme.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/fullcalendar/fullcalendar.css" />
     <!-- END STYLESHEETS -->
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 </head>
 
@@ -41,6 +43,27 @@
                         <i class="fa fa-bars"></i>
                     </a>
                 </li>
+            </ul>
+        </div>
+        <!---->
+        <div class="headerbar-right">
+            <ul class="header-nav header-nav-profile">
+              <li class="dropdown">
+                  <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+                      <img class="kakao-img" src="assets/img/avatar1.jpg"/>
+                      <span class="profile-info">
+                <strong class="kakao-name">방문자</strong>
+                <small>경희대학교 마로</small>
+              </span>
+                  </a>
+                  <ul class="dropdown-menu animation-dock">
+                      <li class="dropdown-header">Config</li>
+                      <li><a href="/login.html"><i class="fa fa-fw fa-power-on text-danger"></i> Login</a></li>
+                      <li><a href="/"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+                  </ul>
+                  <!--end .dropdown-menu -->
+              </li>
+                <!--end .dropdown -->
             </ul>
         </div>
     </header>
@@ -65,10 +88,39 @@
                                 <br/>
                                 <span class="text-lg text-bold text-primary">로그인</span>
                                 <br/><br/>
-                                <p>
-                                    <button class="kko-login-button" data-lang="kr" data-text="long" data-size="medium-narrow"></button>
-                                    <button class="kko-logout-button" data-lang="kr" data-text="long" data-size="medium-narrow"></button>
-                                </p>
+                                <a id="kakao-login-btn"></a>
+                                <script type='text/javascript'>
+                                    //<![CDATA[
+                                    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+                                    Kakao.init('4f7ab073fbd374612aa92b46ac89d7bd');
+                                    // 카카오 로그인 버튼을 생성합니다.
+                                    Kakao.Auth.createLoginButton({
+                                        container: '#kakao-login-btn',
+                                        success: function(authObj) {
+                                            // 로그인 성공시, API를 호출합니다.
+                                            Kakao.API.request({
+                                                url: '/v1/user/me',
+                                                success: function(res) {
+                                                    var login_name = JSON.stringify(res.properties.nickname);
+                                                    var login_img = JSON.stringify(res.properties.thumbnail_image);
+                                                    console.log(login_name);
+                                                    $(".kakao-name").empty();
+                                                    $(".kakao-name").append(res.properties.nickname);
+                                                    $(".kakao-img").attr("src", res.properties.thumbnail_image);
+                                                },
+                                                fail: function(error) {
+                                                    alert(JSON.stringify(error));
+                                                }
+                                            });
+                                        },
+                                        fail: function(err) {
+                                            alert(JSON.stringify(err));
+                                        }
+                                    });
+                                    Kakao.API.persistAccessToken(true);
+                                    Kakao.API.persistRefreshToken(true);
+                                    //]]>
+                                </script>
 
                             </div>
                             <!--end .col -->
@@ -81,48 +133,6 @@
                 <!--end .card -->
             </section>
         </div>
-
-        <script type="text/javascript">
-            kko.init('4f7ab073fbd374612aa92b46ac89d7bd');
-
-            // id가 login-button인 html 엘리먼트에 클릭 이벤트를 추가합니다.
-            document.getElementById('login-button').addEventListener('click', function() {
-                // Kakao 로그인
-                kko.login(function(res) {
-                        // 성공시 alert창에 메세지 표시
-                        alert('로그인 했어요!');
-
-                        // 첫번째 인수인 res에서 사용자 정보를 확인할 수 있습니다.
-                        console.log(res);
-                    },
-                    function(err) {
-                        alert('로그인에 실패했어요!');
-                        console.error(err);
-                    });
-            });
-
-            document.getElementById('logout-button').addEventListener('click', function() {
-                // Kakao 로그아웃
-                kko.logout(function(res) {
-                    if (res) {
-                        alert('로그아웃 되었습니다.');
-                    }
-                });
-            });
-
-            // Kakao SDK가 초기화 되면 init 이벤트가 발생합니다.
-            kko.on('init', function() {
-                // init 이벤트가 발생하면 kko.login() 함수가 실행되도록 합니다.
-                kko.login(function(res) {...
-                })
-            });
-
-            // Kakako Login에 성공하면 login 이벤트가 발생합니다.
-            kko.on('login', function() {
-                // login 이벤트가 발생하면 doSomthing() 함수가 실행되도록 합니다.
-                doSomething();
-            })
-        </script>
         <!--end #content-->
         <!-- END CONTENT -->
 
@@ -197,7 +207,6 @@
     <script src="assets/js/libs/autosize/jquery.autosize.min.js "></script>
     <script src="assets/js/libs/moment/moment.min.js "></script>
     <script src="assets/js/libs/nanoscroller/jquery.nanoscroller.min.js "></script>
-    <script src="assets/js/libs/fullcalendar/fullcalendar.min.js "></script>
     <script src="assets/js/core/source/App.js "></script>
     <script src="assets/js/core/source/AppNavigation.js "></script>
     <script src="assets/js/core/source/AppOffcanvas.js "></script>
@@ -206,9 +215,6 @@
     <script src="assets/js/core/source/AppNavSearch.js "></script>
     <script src="assets/js/core/source/AppVendor.js "></script>
     <script src="assets/js/core/demo/Demo.js "></script>
-    <script src="assets/js/core/demo/DemoCalendar.js "></script>
-    <script src="kko.js"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <!-- END JAVASCRIPT -->
 
 </body>

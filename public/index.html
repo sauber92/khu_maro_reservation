@@ -22,10 +22,29 @@
 
     <style>
       #calendar {
-        
+
       }
     </style>
     <!-- END STYLESHEETS -->
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type='text/javascript'>
+    Kakao.API.request({
+        url: '/v1/user/me',
+        success: function(res) {
+            $(".kakao-name").empty();
+            $(".kakao-name").append(res.properties.nickname);
+            console.log(res.properties.nickname);
+            $(".kakao-img").attr("src", res.properties.thumbnail_image);
+        },
+        fail: function(error) {
+            alert(JSON.stringify(error));
+        }
+    });
+    Kakao.API.persistAccessToken(true);
+    Kakao.API.persistRefreshToken(true);
+        //]]>
+    </script>
 
 </head>
 
@@ -47,6 +66,27 @@
                         <i class="fa fa-bars"></i>
                     </a>
                 </li>
+            </ul>
+        </div>
+
+        <div class="headerbar-right">
+            <ul class="header-nav header-nav-profile">
+              <li class="dropdown">
+                  <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+                      <img class="kakao-img" src="assets/img/avatar1.jpg"/>
+                      <span class="profile-info">
+                <strong class="kakao-name">방문자</strong>
+                <small>경희대학교 마로</small>
+              </span>
+                  </a>
+                  <ul class="dropdown-menu animation-dock">
+                      <li class="dropdown-header">Config</li>
+                      <li><a href="/login.html"><i class="fa fa-fw fa-power-on text-danger"></i> Login</a></li>
+                      <li><a href="/"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+                  </ul>
+                  <!--end .dropdown-menu -->
+              </li>
+                <!--end .dropdown -->
             </ul>
         </div>
     </header>

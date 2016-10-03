@@ -19,33 +19,15 @@
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/material-design-iconic-font.min.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/jquery-ui/jquery-ui-theme.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/fullcalendar/fullcalendar.css" />
-
-    <style>
-      #calendar {
-
-      }
-    </style>
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/bootstrap-datepicker/datepicker3.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/select2/select2.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/multi-select/multi-select.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/typeahead/typeahead.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/dropzone/dropzone-theme.css" />
     <!-- END STYLESHEETS -->
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-    <script type='text/javascript'>
-    Kakao.API.request({
-        url: '/v1/user/me',
-        success: function(res) {
-            $(".kakao-name").empty();
-            $(".kakao-name").append(res.properties.nickname);
-            console.log(res.properties.nickname);
-            $(".kakao-img").attr("src", res.properties.thumbnail_image);
-        },
-        fail: function(error) {
-            alert(JSON.stringify(error));
-        }
-    });
-    Kakao.API.persistAccessToken(true);
-    Kakao.API.persistRefreshToken(true);
-        //]]>
-    </script>
-
 </head>
 
 <body class="menubar-hoverable header-fixed ">
@@ -56,7 +38,7 @@
             <ul class="header-nav header-nav-options">
                 <li class="header-nav-brand">
                     <div class="brand-holder">
-                        <a href="/">
+                        <a href="#" onclick="displayMainPage();">
                             <span class="text-lg text-bold text-primary">MARO 동방 예약 시스템</span>
                         </a>
                     </div>
@@ -71,21 +53,21 @@
 
         <div class="headerbar-right">
             <ul class="header-nav header-nav-profile">
-              <li class="dropdown">
-                  <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
-                      <img class="kakao-img" src="assets/img/avatar1.jpg"/>
-                      <span class="profile-info">
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+                        <img class="kakao-img" src="assets/img/avatar1.jpg" />
+                        <span class="profile-info">
                 <strong class="kakao-name">방문자</strong>
                 <small>경희대학교 마로</small>
               </span>
-                  </a>
-                  <ul class="dropdown-menu animation-dock">
-                      <li class="dropdown-header">Config</li>
-                      <li><a href="/login.html"><i class="fa fa-fw fa-power-on text-danger"></i> Login</a></li>
-                      <li><a href="/"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
-                  </ul>
-                  <!--end .dropdown-menu -->
-              </li>
+                    </a>
+                    <ul class="dropdown-menu animation-dock">
+                        <li class="dropdown-header"></li>
+                        <li><a href="#" onclick="displayLoginPage();"><i class="fa fa-fw fa-power-on text-danger"></i> Login</a></li>
+                        <li><a href="/"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+                    </ul>
+                    <!--end .dropdown-menu -->
+                </li>
                 <!--end .dropdown -->
             </ul>
         </div>
@@ -103,7 +85,8 @@
 
         <!-- BEGIN CONTENT-->
         <div id="content">
-            <section>
+            <!-- BEGIN main-page-->
+            <section id="main-page">
                 <div class="section-header">
                     <ol class="breadcrumb">
                         <li class="active">예약 현황</li>
@@ -112,7 +95,7 @@
                 <div class="section-body">
                     <div class="row">
                         <!-- BEGIN CALENDAR -->
-                        <div class="col-sm-9">
+                        <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-head style-primary">
                                     <header>
@@ -143,50 +126,7 @@
                         <!--end .col -->
                         <!-- END CALENDAR -->
                         <!-- BEGIN CALENDAR EVENTS -->
-                        <div class="col-sm-3">
-                            <ul class="list divider-full-bleed list-events">
 
-                                    <button type="button" onclick="location.href='/reserve.html' " class="btn ink-reaction btn-raised btn-primary">예약 하기</button>
-                                </br>
-                              </br>
-                                <li class="tile">
-                                    <div class="tile-content">
-                                        <div class="tile-text">흠 만들긴 만들었는데</div>
-                                        <div class="tile-icon"><i class="fa fa-circle-thin text-primary"></i></div>
-                                    </div>
-                                </li>
-                                <li class="tile" data-class-name="event-warning">
-                                    <div class="tile-content">
-                                        <div class="tile-text">너희가 이걸 쓸까?</div>
-                                        <div class="tile-icon"><i class="fa fa-circle-thin text-warning"></i></div>
-                                    </div>
-                                </li>
-                                <li class="tile" data-class-name="event-info">
-                                    <div class="tile-content">
-                                        <div class="tile-text">많이 사용하게 된다면</div>
-                                        <div class="tile-icon"><i class="fa fa-circle-thin text-info"></i></div>
-                                    </div>
-                                </li>
-                                <li class="tile" data-class-name="event-success">
-                                    <div class="tile-content">
-                                        <div class="tile-text">감사한 마음을 가지고</div>
-                                        <div class="tile-icon"><i class="fa fa-circle-thin text-success"></i></div>
-                                    </div>
-                                </li>
-                                <li class="tile" data-class-name="event-danger">
-                                    <div class="tile-content">
-                                        <div class="tile-text">치킨 한마리 정도는</div>
-                                        <div class="tile-icon"><i class="fa fa-circle-thin text-danger"></i></div>
-                                    </div>
-                                </li>
-                                <li class="tile" data-class-name="event-default">
-                                    <div class="tile-content">
-                                        <div class="tile-text">사줄 수 있지?</div>
-                                        <div class="tile-icon"><i class="fa fa-circle-thin text-default"></i></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                         <!--end .col -->
                         <!-- END CALENDAR EVENTS -->
                     </div>
@@ -195,66 +135,191 @@
                 <!--end .section-body -->
             </section>
         </div>
-        <!--end #content-->
-        <!-- END CONTENT -->
+        <!--END main-page-->
 
-        <!-- BEGIN MENUBAR-->
-        <div id="menubar" class="menubar-inverse ">
-            <div class="menubar-fixed-panel">
-                <div>
-                    <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
-                        <i class="fa fa-bars"></i>
-                    </a>
+        <!--BEGIN reserve-page-->
+        <div id="content">
+            <section id="reserve-page">
+                <div class="section-header">
+                    <ol class="breadcrumb">
+                        <li class="active">예약 하기</li>
+                    </ol>
                 </div>
+                <div class="section-body">
+                    <form class="form">
+                        <div class="form-group control-width-normal">
+                            <div class="input-group date" id="demo-date">
+                                <div class="input-group-content">
+                                    <input type="text" class="form-control" id="form-date">
+                                    <label>날짜</label>
+                                </div>
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select id="form-select-start-time" name="select1" class="form-control">
+                          <option value="20">17</option>
+                          <option value="30">18</option>
+                          <option value="40">19</option>
+                          <option value="50">20</option>
+                          <option value="60">21</option>
+                          <option value="70">22</option>
+                          <option value="80">23</option>
+                        </select>
+                            <label for="select1">시작 시간</label>
+                        </div>
 
+                        <div class="form-group">
+                            <select id="form-select-end" name="select1" class="form-control">
+                          <option value="30">18</option>
+                          <option value="40">19</option>
+                          <option value="50">20</option>
+                          <option value="60">21</option>
+                          <option value="70">22</option>
+                          <option value="80">23</option>
+                          <option value="90">24</option>
+                </select>
+                            <label for="select1">종료 시간</label>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="textarea1" id="form-textarea" class="form-control" rows="3" placeholder=""></textarea>
+                            <label for="textarea1">사용 목적</label>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="button" class="btn ink-reaction btn-raised btn-primary" onclick="saveReservation();">저장</button>
+                        </div>
+
+                    </form>
+                </div>
+                <!--end .col -->
+
+        </div>
+        <!--end .row -->
+    </div>
+    <!--end .card-body -->
+    </div>
+    </section>
+    </div>
+    <!--END reserve-page-->
+
+    <!--BEGIN login-page-->
+    <div id="content">
+        <section class="section-account" id="login-page">
+            <div class="card contain-sm style-transparent">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <br/>
+                            <span class="text-lg text-bold text-primary">로그인</span>
+                            <br/><br/>
+                            <a id="kakao-login-btn"></a>
+
+                            <script type='text/javascript'>
+                                //<![CDATA[
+                                // 사용할 앱의 JavaScript 키를 설정해 주세요.
+                                Kakao.init('4f7ab073fbd374612aa92b46ac89d7bd');
+                                // 카카오 로그인 버튼을 생성합니다.
+                                Kakao.Auth.createLoginButton({
+                                    container: '#kakao-login-btn',
+                                    success: function(authObj) {
+                                        // 로그인 성공시, API를 호출합니다.
+                                        Kakao.API.request({
+                                            url: '/v1/user/me',
+                                            success: function(res) {
+                                                var login_name = JSON.stringify(res.properties.nickname);
+                                                var login_img = JSON.stringify(res.properties.thumbnail_image);
+                                                console.log(login_name);
+                                                $(".kakao-name").empty();
+                                                $(".kakao-name").append(res.properties.nickname);
+                                                $(".kakao-img").attr("src", res.properties.thumbnail_image);
+                                            },
+                                            fail: function(error) {
+                                                alert(JSON.stringify(error));
+                                            }
+                                        });
+                                    },
+                                    fail: function(err) {
+                                        alert(JSON.stringify(err));
+                                    }
+                                });
+                                //]]>
+                            </script>
+
+                        </div>
+                        <!--end .col -->
+
+                    </div>
+                    <!--end .row -->
+                </div>
+                <!--end .card-body -->
             </div>
-            <div class="menubar-scroll-panel">
+            <!--end .card -->
+        </section>
+        <!--END login-page-->
 
-                <!-- BEGIN MAIN MENU -->
-                <ul id="main-menu" class="gui-controls">
+    </div>
+    <!--end #content-->
+    <!-- END CONTENT -->
 
-                    <!-- BEGIN 예약 현황 -->
-                    <li>
-                        <a href="/">
-                            <div class="gui-icon"><i class="md md-visibility"></i></div>
-                            <span class="title">예약 확인</span>
-                        </a>
-                    </li>
-                    <!--end /menu-li -->
-                    <!-- END 예약현황 -->
+    <!-- BEGIN MENUBAR-->
+    <div id="menubar" class="menubar-inverse ">
+        <div class="menubar-fixed-panel">
+            <div>
+                <a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
 
-                    <!-- BEGIN 예약하기 -->
-                    <li>
-                        <a href="/reserve.html">
-                            <div class="gui-icon"><i class="md md-web"></i></div>
-                            <span class="title">예약 하기</span>
-                        </a>
-                    </li>
-                    <!--end /menu-li -->
-                    <!-- END 예약하기 -->
+        </div>
+        <div class="menubar-scroll-panel">
 
-                    <!-- BEGIN 로그인 -->
-                    <li>
-                        <a href="/login.html">
-                            <div class="gui-icon"><i class="md md-face-unlock"></i></div>
-                            <span class="title">로그인</span>
-                        </a>
-                    </li>
-                    <!-- END 로그인 -->
-                </ul>
-                <!--end .main-menu -->
-                <!-- END MAIN MENU -->
+            <!-- BEGIN MAIN MENU -->
+            <ul id="main-menu" class="gui-controls">
 
-                <div class="menubar-foot-panel">
-                    <small class="no-linebreak hidden-folded">
+                <!-- BEGIN 예약 현황 -->
+                <li>
+                    <a id="main-page-btn" href="#" onclick="displayMainPage();">
+                        <div class="gui-icon"><i class="md md-visibility"></i></div>
+                        <span class="title">예약 확인</span>
+                    </a>
+                </li>
+                <!--end /menu-li -->
+                <!-- END 예약현황 -->
+
+                <!-- BEGIN 예약하기 -->
+                <li>
+                    <a id="reserve-page-btn" href="#" onclick="displayReservePage();">
+                        <div class="gui-icon"><i class="md md-web"></i></div>
+                        <span class="title">예약 하기</span>
+                    </a>
+                </li>
+                <!--end /menu-li -->
+                <!-- END 예약하기 -->
+
+                <!-- BEGIN 로그인 -->
+                <li>
+                    <a id="login-page-bnt" href="#" onclick="displayLoginPage();">
+                        <div class="gui-icon"><i class="md md-face-unlock"></i></div>
+                        <span class="title">로그인</span>
+                    </a>
+                </li>
+                <!-- END 로그인 -->
+            </ul>
+            <!--end .main-menu -->
+            <!-- END MAIN MENU -->
+
+            <div class="menubar-foot-panel">
+                <small class="no-linebreak hidden-folded">
 							<span class="opacity-75">Copyright &copy; 2016</span> <strong>경희대학교 동아리 마로</strong>
 						</small>
-                </div>
             </div>
-            <!--end .menubar-scroll-panel-->
         </div>
-        <!--end #menubar-->
-        <!-- END MENUBAR -->
+        <!--end .menubar-scroll-panel-->
+    </div>
+    <!--end #menubar-->
+    <!-- END MENUBAR -->
 
     </div>
     <!--end #base-->
@@ -279,6 +344,11 @@
     <script src="assets/js/core/source/AppVendor.js "></script>
     <script src="assets/js/core/demo/Demo.js "></script>
     <script src="assets/js/core/demo/DemoCalendar.js "></script>
+    <script src="assets/js/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="assets/js/libs/typeahead/typeahead.bundle.min.js"></script>
+    <script src="assets/js/libs/dropzone/dropzone.min.js"></script>
+    <script src="assets/js/core/demo/DemoFormComponents.js"></script>
+    <script type='text/javascript' src="page.js"></script>
     <!-- END JAVASCRIPT -->
 
 </body>

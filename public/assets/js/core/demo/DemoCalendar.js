@@ -61,8 +61,8 @@
 
 	p._displayDate = function () {
 		var selectedDate = $('#calendar').fullCalendar('getDate');
-		$('.selected-day').html(moment(selectedDate).format("dddd"));
-		$('.selected-date').html(moment(selectedDate).format("MMMM DD, YYYY"));
+		// $('.selected-day').html(moment(selectedDate).format("ddd"));
+		$('.selected-date').html(moment(selectedDate).format("MMMM, YYYY"));
 		$('.selected-year').html(moment(selectedDate).format("YYYY"));
 	};
 
@@ -141,8 +141,8 @@
 			events: [
 				{
 					title: '정준영이 만듬',
-					start: new Date(y, m, d),
-					end: new Date(y, m, d),
+					start: new Date(2016, 09, 2),
+					end: new Date(2016, 09, 4),
 					allDay: true
 				}
 			],

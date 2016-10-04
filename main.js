@@ -28,6 +28,6 @@ app.post('/events', (req,res,next)=>{
   (new Events(req.body)).save((err,event)=>res.send(event));
 });
 
-app.listen(3000, function() {
-    console.log('MARO app listening on port 3000!');
+app.listen(8080, function() {
+    console.log('MARO app listening on port 8080!');
 });

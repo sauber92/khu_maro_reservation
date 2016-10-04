@@ -14,14 +14,12 @@
 
     <link rel="icon" type="image/ico" href="assets/img/favicon.ico" />
     <!-- BEGIN STYLESHEETS -->
-
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/bootstrap.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/materialadmin.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/font-awesome.min.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/material-design-iconic-font.min.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/jquery-ui/jquery-ui-theme.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/fullcalendar/fullcalendar.css" />
-    <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/bootstrap-datepicker/datepicker3.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/select2/select2.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/multi-select/multi-select.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/bootstrap-tagsinput/bootstrap-tagsinput.css" />
@@ -29,8 +27,8 @@
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/dropzone/dropzone-theme.css" />
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" href="assets/js/datepair.js"></script>
     <script type="text/javascript" href="assets/js/jquery.datepair.js"></script>
+    <script type="text/javascript" href="assets/js/jquery.timepicker.js"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
@@ -145,31 +143,14 @@
                 <div class="section-body">
                     <form class="form">
                         <div class="form-group control-width-medium">
-                            <div class="input-group date" id="demo-date">
-                                <p id="datepairExample">
-                                    <input type="text" class="date start" />
-                                    <input type="text" class="time start" /> to
-                                </p>
-                                <p id="datepairExample">
-                                    <input type="text" class="time end" />
-                                    <input type="text" class="date end" />
-                                </p>
-                                <script>
-                                    // initialize input widgets first
-                                    $('#datepairExample .time').timepicker({
-                                        'showDuration': true,
-                                        'timeFormat': 'g:ia'
-                                    });
+                            <p id="datepairExample">
+                                <input type="text" class="date start" />
+                                <input type="text" class="time start" /> to
+                                <input type="text" class="date end" />
+                                <input type="text" class="time end" />
+                            </p>
 
-                                    $('#datepairExample .date').datepicker({
-                                        'format': 'yyyy-m-d',
-                                        'autoclose': true
-                                    });
 
-                                    // initialize datepair
-                                    $('#datepairExample').datepair();
-                                </script>
-                            </div>
                         </div>
 
                         <div class="form-group">
@@ -322,7 +303,6 @@
     <script src="assets/js/core/source/AppVendor.js "></script>
     <script src="assets/js/core/demo/Demo.js "></script>
     <script src="assets/js/core/demo/DemoCalendar.js "></script>
-    <script src="assets/js/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
     <script src="assets/js/libs/typeahead/typeahead.bundle.min.js"></script>
     <script src="assets/js/libs/dropzone/dropzone.min.js"></script>
     <script src="assets/js/core/demo/DemoFormComponents.js"></script>

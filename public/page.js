@@ -9,9 +9,9 @@ window.onload = function() {
     displayMainPage();
 }
 
-// window.addEventListener('load', function() {
-//     setTimeout(scrollTo, 0, 0, 1);
-// }, false);
+window.addEventListener('load', function() {
+    setTimeout(scrollTo, 0, 0, 1);
+}, false);
 
 $('html, body').css({
     'overflow': 'hidden',
@@ -80,7 +80,8 @@ function saveReservation() {
 
 $('#calendar').fullCalendar({
     header: false,
-    height: 400,
+    height: "auto",
+    contentHeight: "auto",
     resources: {
         url: '/events',
         type: 'POST'
@@ -92,3 +93,16 @@ $('#calendar').fullCalendar({
         allDay: true
     }]
 });
+
+// $('#datepairExample .time').timepicker({
+//     'showDuration': true,
+//     'timeFormat': 'g:ia'
+// });
+//
+// $('#datepairExample .date').datepicker({
+//     'format': 'yyyy-m-d',
+//     'autoclose': true
+// // });
+//
+// // initialize datepair
+// $('#datepairExample').datepair();

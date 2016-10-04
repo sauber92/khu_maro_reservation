@@ -6,7 +6,8 @@
 
     <!-- BEGIN META -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="keywords" content="your,keywords">
     <meta name="description" content="Short explanation about this website">
     <!-- END META -->
@@ -26,7 +27,10 @@
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/bootstrap-tagsinput/bootstrap-tagsinput.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/typeahead/typeahead.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/dropzone/dropzone-theme.css" />
-    <!-- END STYLESHEETS -->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" href="assets/js/datepair.js"></script>
+    <script type="text/javascript" href="assets/js/jquery.datepair.js"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
@@ -45,7 +49,7 @@
                     </div>
                 </li>
                 <li>
-                    <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);">
+                    <a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar" href="javascript:void(0);" onclick="hamberBtn();">
                         <i class="fa fa-bars"></i>
                     </a>
                 </li>
@@ -142,21 +146,32 @@
                     <form class="form">
                         <div class="form-group control-width-medium">
                             <div class="input-group date" id="demo-date">
-                                <div class="input-group-content">
-                                    <input type="text" class="form-control" id="form-date">
-                                </div>
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <p id="datepairExample">
+                                    <input type="text" class="date start" />
+                                    <input type="text" class="time start" /> to
+                                </p>
+                                <p id="datepairExample">
+                                    <input type="text" class="time end" />
+                                    <input type="text" class="date end" />
+                                </p>
+                                <script>
+                                    // initialize input widgets first
+                                    $('#datepairExample .time').timepicker({
+                                        'showDuration': true,
+                                        'timeFormat': 'g:ia'
+                                    });
+
+                                    $('#datepairExample .date').datepicker({
+                                        'format': 'yyyy-m-d',
+                                        'autoclose': true
+                                    });
+
+                                    // initialize datepair
+                                    $('#datepairExample').datepair();
+                                </script>
                             </div>
                         </div>
-                        <div class="form-group control-width-large">
-                            <div class="btn-group">
-                                <button type="button" class="btn ink-reaction btn-default-bright" onclick="saveReservation();">18시</button>
-                                <button type="button" class="btn ink-reaction btn-default-bright" onclick="saveReservation();">19시</button>
-                                <button type="button" class="btn ink-reaction btn-default-bright" onclick="saveReservation();">20시</button>
-                                <button type="button" class="btn ink-reaction btn-default-bright" onclick="saveReservation();">21시</button>
-                                <button type="button" class="btn ink-reaction btn-default-bright" onclick="saveReservation();">22시</button>
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             </br>
                             </br>

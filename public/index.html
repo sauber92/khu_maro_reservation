@@ -26,9 +26,29 @@
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/typeahead/typeahead.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/theme-default/libs/dropzone/dropzone-theme.css" />
 
+    <link type="text/css" rel="stylesheet" href="assets/css/mobiscroll.frame.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/mobiscroll.mobiscroll-dark.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/mobiscroll.scroller.css" />
+    <style type="text/css">
+        /* Demo Page styling, you can disregard this in your implementation */
+
+        body {
+            font-family: arial, verdana, sans-serif;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: .625em;
+            margin: 0 0 .625em 0;
+            border: 1px solid #aaa;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+    </style>
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" href="assets/js/jquery.datepair.js"></script>
-    <script type="text/javascript" href="assets/js/jquery.timepicker.js"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
@@ -142,17 +162,83 @@
                 </div>
                 <div class="section-body">
                     <form class="form">
-                        <div class="form-group control-width-medium">
-                            <p id="datepairExample">
-                                <input type="text" class="date start" />
-                                <input type="text" class="time start" /> to
-                                <input type="text" class="date end" />
-                                <input type="text" class="time end" />
-                            </p>
+                        <label for="theme" name="theme" id="theme" class="settings"></label>
+                        <label for="display" name="display" id="display" class="settings"></label>
+                        <label for="language" name="language" id="language" class="settings"></label>
+                        <label>
+                          시작 시간
+                          <input id="test" />
+                        </label>
 
+                        <label for="theme" name="theme" id="theme" class="settings"></label>
+                        <label for="display" name="display" id="display" class="settings"></label>
+                        <label for="language" name="language" id="language" class="settings"></label>
+                        <label>
+                          종료 시간
+                          <input id="test2" />
+                        </label>
 
-                        </div>
+                        <!-- Mobiscroll JS Includes -->
+                        <script type='text/javascript' src="assets/js/mobiscroll.dom.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.core.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.scrollview.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.frame.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.scroller.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.mobiscroll-dark.js"></script>
 
+                        <script>
+                            (function($) {
+
+                                function init() {
+
+                                    mobiscroll.scroller('#test', {
+                                        theme: theme,
+                                        display: display,
+                                        lang: lang,
+                                        wheels: [
+                                            [{
+                                                label: 'First wheel',
+                                                data: ['17시', '18시', '19시', '20시', '21시', '22시', '23시']
+                                            }, {
+                                                label: 'Second wheel',
+                                                data: ['00분', '10분', '20분', '30분', '40분', '50분']
+                                            }]
+                                        ]
+                                    });
+
+                                    mobiscroll.scroller('#test2', {
+                                        theme: theme,
+                                        display: display,
+                                        lang: lang,
+                                        wheels: [
+                                            [{
+                                                label: 'First wheel',
+                                                data: ['17시', '18시', '19시', '20시', '21시', '22시', '23시']
+                                            }, {
+                                                label: 'Second wheel',
+                                                data: ['00분', '10분', '20분', '30분', '40분', '50분']
+                                            }]
+                                        ]
+                                    });
+                                }
+
+                                // -------------------------------------------------------------------
+                                // Demo page code START, you can disregard this in your implementation
+                                var theme, display, lang;
+
+                                $('.settings').on('change', function() {
+                                    theme = 'mobiscroll-dark';
+                                    display = 'bubble';
+                                    lang = 'en';
+
+                                    init();
+                                });
+
+                                $('#theme').trigger('change');
+                                // Demo page code END
+                                // -------------------------------------------------------------------
+                            })(mobiscroll.$);
+                        </script>
                         <div class="form-group">
                             </br>
                             </br>

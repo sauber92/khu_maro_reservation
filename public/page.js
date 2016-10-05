@@ -75,7 +75,7 @@ function displayLoginPage() {
 
 function saveReservation() {
     console.log('Reservation btn clicked');
-    sendFormData();
+    
 }
 
 $('#calendar').fullCalendar({
@@ -93,16 +93,3 @@ $('#calendar').fullCalendar({
         allDay: true
     }]
 });
-
-// $('#datepairExample .time').timepicker({
-//     'showDuration': true,
-//     'timeFormat': 'g:ia'
-// });
-//
-// $('#datepairExample .date').datepicker({
-//     'format': 'yyyy-m-d',
-//     'autoclose': true
-// // });
-//
-// // initialize datepair
-// $('#datepairExample').datepair();

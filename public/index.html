@@ -171,7 +171,7 @@
                                         <div class="input-group date" id="demo-date-format">
                                             <div class="input-group-content">
                                                 <label>시작 날짜</label>
-                                                <input type="button" class="form-control" id="autocomplete1" data-source="data/date.json.html">
+                                                <input type="button" class="btn btn-block ink-reaction btn-default-light" id="autocomplete1" data-source="data/date.json.html" />
                                             </div>
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div>
@@ -179,12 +179,36 @@
 
                                     <div class="form-group control-width-normal">
                                         <div class="input-group date" id="demo-date-format">
+
+                                            <label for="theme" name="theme" id="theme" class="settings"></label>
+                                            <label for="display" name="display" id="display" class="settings"></label>
+                                            <label for="language" name="language" id="language" class="settings"></label>
                                             <div class="input-group-content">
-                                                <label for="theme" name="theme" id="theme" class="settings"></label>
-                                                <label for="display" name="display" id="display" class="settings"></label>
-                                                <label for="language" name="language" id="language" class="settings"></label>
                                                 <label>시작 시간</label>
-                                                <input type="button" class="form-control" id="test" />
+                                                <input type="button" class="btn btn-block ink-reaction btn-default-light" id="test" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group control-width-normal">
+                                        <div class="input-group date" id="demo-date-format">
+                                            <div class="input-group-content">
+                                                <label>종료 날짜</label>
+                                                <input type="button" class="btn btn-block ink-reaction btn-default-light" id="autocomplete1" data-source="data/date.json.html" />
+                                            </div>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group control-width-normal">
+                                        <div class="input-group date" id="demo-date-format">
+
+                                            <label for="theme" name="theme" id="theme" class="settings"></label>
+                                            <label for="display" name="display" id="display" class="settings"></label>
+                                            <label for="language" name="language" id="language" class="settings"></label>
+                                            <div class="input-group-content">
+                                                <label>종료 시간</label>
+                                                <input type="button" class="btn btn-block ink-reaction btn-default-light" id="test2" />
                                             </div>
                                         </div>
                                     </div>
@@ -193,23 +217,12 @@
                             </div>
                             <!--end .card-body -->
                         </div>
+
+                        <div class="form-group">
+
+                            <button type="button" class="btn ink-reaction btn-raised btn-primary" onclick="saveReservation();">예약</button>
+                        </div>
                         <form class="form">
-                            <label for="theme" name="theme" id="theme" class="settings"></label>
-                            <label for="display" name="display" id="display" class="settings"></label>
-                            <label for="language" name="language" id="language" class="settings"></label>
-                            <label>
-                          시작 시간
-                          <input id="test" />
-                        </label>
-
-                            <label for="theme" name="theme" id="theme" class="settings"></label>
-                            <label for="display" name="display" id="display" class="settings"></label>
-                            <label for="language" name="language" id="language" class="settings"></label>
-                            <label>
-                          종료 시간
-                          <input id="test2" />
-                        </label>
-
                             <!-- Mobiscroll JS Includes -->
                             <script type='text/javascript' src="assets/js/mobiscroll.dom.js"></script>
                             <script type='text/javascript' src="assets/js/mobiscroll.core.js"></script>
@@ -271,11 +284,7 @@
                                     // -------------------------------------------------------------------
                                 })(mobiscroll.$);
                             </script>
-                            <div class="form-group">
-                                </br>
-                                </br>
-                                <button type="button" class="btn ink-reaction btn-raised btn-primary" onclick="saveReservation();">예약</button>
-                            </div>
+
 
                         </form>
                     </div>

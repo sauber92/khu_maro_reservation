@@ -4,6 +4,7 @@
   "description": "이 프로젝트는 경희대학교 전자ㆍ전파공학과 학술 동아리 **마로**의 동방 예약 시스템 프로젝트 입니다.",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

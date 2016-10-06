@@ -6,6 +6,13 @@ var end_time = $('#test2').val();
 
 var position = $('#main-page').offset();
 
+var arrEvent = {
+  title: $('.kakao-name').val(),
+  start: $('#autocomplete1').val(),
+  end: $('#endDate').val(),
+  allDay: true
+};
+
 window.onload = function() {
     console.log('Start khu-maro-reservation ======>');
     displayMainPage();
@@ -82,6 +89,8 @@ function saveReservation() {
     console.log(start_time);
     console.log(end_date);
     console.log(end_time);
+
+    $('#calendar').fullCalendar('addEvent', arrEvent);
 }
 
 $('#calendar').fullCalendar({
@@ -92,10 +101,29 @@ $('#calendar').fullCalendar({
         url: '/events',
         type: 'POST'
     },
-    events: [{
+    selectable: true,
+
+    select: function(start, end, allDay) {
+      var title = prompt('입력하세요:');
+      if (title) {
+        calendar.fullCalendar('renderEvent',
+          {
+            title: title,
+            start: start,
+            end: end,
+            allDay: allDay
+          },
+          true // make the event "stick"
+        );
+      }
+      calendar.fullCalendar('unselect');
+    },
+    events: [
+      {
         title: '정준영이 만듬',
-        start: new Date(2016, 09, 2),
-        end: new Date(2016, 09, 6),
+        start: '2016-10-02',
+        end:'2016-10-07',
         allDay: true
-    }]
+      },
+    ]
 });

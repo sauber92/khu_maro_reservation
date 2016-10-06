@@ -1,7 +1,9 @@
-var formDate = document.getElementById("form-date");
-var startTime = document.getElementById("form-select-start-time");
-var endTime = document.getElementById("form-select-end-time");
-var textarea = document.getElementById("form-textarea");
+var user_name = $('.kakao-name').val();
+var start_date = $('#autocomplete1').val();
+var start_time = $('#test').val();
+var end_date = $('#endDate').val();
+var end_time = $('#test2').val();
+
 var position = $('#main-page').offset();
 
 window.onload = function() {
@@ -75,7 +77,11 @@ function displayLoginPage() {
 
 function saveReservation() {
     console.log('Reservation btn clicked');
-    
+    console.log(user_name);
+    console.log(start_date);
+    console.log(start_time);
+    console.log(end_date);
+    console.log(end_time);
 }
 
 $('#calendar').fullCalendar({
@@ -89,7 +95,7 @@ $('#calendar').fullCalendar({
     events: [{
         title: '정준영이 만듬',
         start: new Date(2016, 09, 2),
-        end: new Date(2016, 09, 5),
+        end: new Date(2016, 09, 6),
         allDay: true
     }]
 });

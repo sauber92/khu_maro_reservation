@@ -47,6 +47,21 @@
             -moz-box-sizing: border-box;
             box-sizing: border-box;
         }
+
+        .section-header {
+            padding: 0;
+            height: 40px;
+        }
+        .card-body {
+          padding-top: 3px;
+          padding-left: 16px;
+          padding-right: 16px;
+          padding-bottom: 16px;
+        }
+        .form-group {
+          margin-bottom: 3px;
+          padding-top: 3px;
+        }
     </style>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -90,31 +105,17 @@
                         <li><a href="#" onclick="displayLoginPage();"><i class="md-accessibility"></i> Login</a></li>
                         <li><a href="/"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
                     </ul>
-                    <!--end .dropdown-menu -->
                 </li>
-                <!--end .dropdown -->
             </ul>
         </div>
     </header>
-    <!-- END HEADER-->
-
-    <!-- BEGIN BASE-->
     <div id="base">
-
-        <!-- BEGIN OFFCANVAS LEFT -->
         <div class="offcanvas">
         </div>
-        <!--end .offcanvas-->
-        <!-- END OFFCANVAS LEFT -->
-
-        <!-- BEGIN CONTENT-->
         <div id="content">
-            <!-- BEGIN main-page-->
             <section id="main-page">
-
                 <div class="section-body">
                     <div class="row">
-                        <!-- BEGIN CALENDAR -->
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-head style-primary">
@@ -131,24 +132,13 @@
                                     </div>
 
                                 </div>
-                                <!--end .card-head -->
                                 <div class="card-body no-padding">
                                     <div id="calendar"></div>
                                 </div>
-                                <!--end .card-body -->
                             </div>
-                            <!--end .card -->
                         </div>
-                        <!--end .col -->
-                        <!-- END CALENDAR -->
-                        <!-- BEGIN CALENDAR EVENTS -->
-
-                        <!--end .col -->
-                        <!-- END CALENDAR EVENTS -->
                     </div>
-                    <!--end .row -->
                 </div>
-                <!--end .section-body -->
             </section>
         </div>
         <!--END main-page-->
@@ -163,139 +153,132 @@
                 </div>
                 <div class="section-body">
 
-                    <div class="col-lg-offset-1 col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <form class="form">
-                                    <div class="form-group control-width-normal">
-                                        <div class="input-group date" id="demo-date-format">
-                                            <div class="input-group-content">
-                                                <label>시작 날짜</label>
-                                                <input type="button" class="btn btn-block ink-reaction btn-default-light" id="autocomplete1" data-source="data/date.json.html" />
-                                            </div>
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="form">
+
+                                <div class="form-group control-width-normal">
+                                    <div class="input-group date" id="demo-date-format">
+                                        <div class="input-group-content">
+                                            <label>시작 날짜</label>
+                                            <input type="button" class="btn btn-block ink-reaction btn-default-light" id="autocomplete1" data-source="data/date.json.html" />
+                                        </div>
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group control-width-normal">
+                                    <div class="input-group date" id="demo-date-format">
+                                        <label for="theme" name="theme" id="theme" class="settings"></label>
+                                        <label for="display" name="display" id="display" class="settings"></label>
+                                        <label for="language" name="language" id="language" class="settings"></label>
+                                        <div class="input-group-content">
+                                            <label>시작 시간</label>
+                                            <input type="button" class="btn btn-block ink-reaction btn-default-light" id="test" />
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="form-group control-width-normal">
-                                        <div class="input-group date" id="demo-date-format">
+                                <div class="form-group control-width-normal">
+                                    <div class="input-group date" id="demo-date">
+                                        <div class="input-group-content">
+                                            <label>종료 날짜</label>
+                                            <input type="button" class="btn btn-block ink-reaction btn-default-light" id="endDate">
 
-                                            <label for="theme" name="theme" id="theme" class="settings"></label>
-                                            <label for="display" name="display" id="display" class="settings"></label>
-                                            <label for="language" name="language" id="language" class="settings"></label>
-                                            <div class="input-group-content">
-                                                <label>시작 시간</label>
-                                                <input type="button" class="btn btn-block ink-reaction btn-default-light" id="test" />
-                                            </div>
+                                        </div>
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group control-width-normal">
+                                    <div class="input-group date" id="demo-date-format">
+                                        <label for="theme" name="theme" id="theme" class="settings"></label>
+                                        <label for="display" name="display" id="display" class="settings"></label>
+                                        <label for="language" name="language" id="language" class="settings"></label>
+                                        <div class="input-group-content">
+                                            <label>종료 시간</label>
+                                            <input type="button" class="btn btn-block ink-reaction btn-default-light" id="test2" />
                                         </div>
                                     </div>
-
-                                    <div class="form-group control-width-normal">
-                                        <div class="input-group date" id="demo-date-format">
-                                            <div class="input-group-content">
-                                                <label>종료 날짜</label>
-                                                <input type="button" class="btn btn-block ink-reaction btn-default-light" id="autocomplete1" data-source="data/date.json.html" />
-                                            </div>
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group control-width-normal">
-                                        <div class="input-group date" id="demo-date-format">
-
-                                            <label for="theme" name="theme" id="theme" class="settings"></label>
-                                            <label for="display" name="display" id="display" class="settings"></label>
-                                            <label for="language" name="language" id="language" class="settings"></label>
-                                            <div class="input-group-content">
-                                                <label>종료 시간</label>
-                                                <input type="button" class="btn btn-block ink-reaction btn-default-light" id="test2" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--end .form-group -->
-                                </form>
-                            </div>
-                            <!--end .card-body -->
+                                </div>
+                                <!--end .form-group -->
+                            </form>
                         </div>
+                        <!--end .card-body -->
+                    </div>
 
-                        <div class="form-group">
+                    <div class="form-group">
 
-                            <button type="button" class="btn ink-reaction btn-raised btn-primary" onclick="saveReservation();">예약</button>
-                        </div>
-                        <form class="form">
-                            <!-- Mobiscroll JS Includes -->
-                            <script type='text/javascript' src="assets/js/mobiscroll.dom.js"></script>
-                            <script type='text/javascript' src="assets/js/mobiscroll.core.js"></script>
-                            <script type='text/javascript' src="assets/js/mobiscroll.scrollview.js"></script>
-                            <script type='text/javascript' src="assets/js/mobiscroll.frame.js"></script>
-                            <script type='text/javascript' src="assets/js/mobiscroll.scroller.js"></script>
-                            <script type='text/javascript' src="assets/js/mobiscroll.mobiscroll-dark.js"></script>
+                        <button type="button" class="btn ink-reaction btn-raised btn-primary" onclick="saveReservation();">예약</button>
+                    </div>
+                    <form class="form">
+                        <!-- Mobiscroll JS Includes -->
+                        <script type='text/javascript' src="assets/js/mobiscroll.dom.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.core.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.scrollview.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.frame.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.scroller.js"></script>
+                        <script type='text/javascript' src="assets/js/mobiscroll.mobiscroll-dark.js"></script>
 
-                            <script>
-                                (function($) {
+                        <script>
+                            (function($) {
 
-                                    function init() {
+                                function init() {
 
-                                        mobiscroll.scroller('#test', {
-                                            theme: theme,
-                                            display: display,
-                                            lang: lang,
-                                            wheels: [
-                                                [{
-                                                    label: 'First wheel',
-                                                    data: ['17시', '18시', '19시', '20시', '21시', '22시', '23시']
-                                                }, {
-                                                    label: 'Second wheel',
-                                                    data: ['00분', '10분', '20분', '30분', '40분', '50분']
-                                                }]
-                                            ]
-                                        });
-
-                                        mobiscroll.scroller('#test2', {
-                                            theme: theme,
-                                            display: display,
-                                            lang: lang,
-                                            wheels: [
-                                                [{
-                                                    label: 'First wheel',
-                                                    data: ['17시', '18시', '19시', '20시', '21시', '22시', '23시']
-                                                }, {
-                                                    label: 'Second wheel',
-                                                    data: ['00분', '10분', '20분', '30분', '40분', '50분']
-                                                }]
-                                            ]
-                                        });
-                                    }
-
-                                    // -------------------------------------------------------------------
-                                    // Demo page code START, you can disregard this in your implementation
-                                    var theme, display, lang;
-
-                                    $('.settings').on('change', function() {
-                                        theme = 'mobiscroll-dark';
-                                        display = 'bubble';
-                                        lang = 'en';
-
-                                        init();
+                                    mobiscroll.scroller('#test', {
+                                        theme: theme,
+                                        display: display,
+                                        lang: lang,
+                                        wheels: [
+                                            [{
+                                                label: 'First wheel',
+                                                data: ['17시', '18시', '19시', '20시', '21시', '22시', '23시']
+                                            }, {
+                                                label: 'Second wheel',
+                                                data: ['00분', '10분', '20분', '30분', '40분', '50분']
+                                            }]
+                                        ]
                                     });
 
-                                    $('#theme').trigger('change');
-                                    // Demo page code END
-                                    // -------------------------------------------------------------------
-                                })(mobiscroll.$);
-                            </script>
+                                    mobiscroll.scroller('#test2', {
+                                        theme: theme,
+                                        display: display,
+                                        lang: lang,
+                                        wheels: [
+                                            [{
+                                                label: 'First wheel',
+                                                data: ['17시', '18시', '19시', '20시', '21시', '22시', '23시']
+                                            }, {
+                                                label: 'Second wheel',
+                                                data: ['00분', '10분', '20분', '30분', '40분', '50분']
+                                            }]
+                                        ]
+                                    });
+                                }
+
+                                // -------------------------------------------------------------------
+                                // Demo page code START, you can disregard this in your implementation
+                                var theme, display, lang;
+
+                                $('.settings').on('change', function() {
+                                    theme = 'mobiscroll-dark';
+                                    display = 'bubble';
+                                    lang = 'en';
+
+                                    init();
+                                });
+
+                                $('#theme').trigger('change');
+                                // Demo page code END
+                                // -------------------------------------------------------------------
+                            })(mobiscroll.$);
+                        </script>
 
 
-                        </form>
-                    </div>
-                    <!--end .col -->
-
+                    </form>
                 </div>
-                <!--end .row -->
         </div>
-        <!--end .card-body -->
-    </div>
-    </section>
+        </section>
     </div>
     <!--END reserve-page-->
 

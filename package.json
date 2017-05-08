@@ -18,8 +18,12 @@
   "homepage": "https://github.com/sauber92/khu_maro_reservation#readme",
   "dependencies": {
     "body-parser": "latest",
-    "express": "latest",
     "ejs": "latest",
-    "fs": "latest"
+    "express": "latest",
+    "fs": "latest",
+    "fullcalendar": "^3.4.0",
+    "jquery": "^3.2.1",
+    "moment": "^2.18.1",
+    "mysql": "latest"
   }
 }

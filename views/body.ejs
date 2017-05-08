@@ -1,7 +1,29 @@
 <div>
-    <h1>TEST</h1>
+    <h1>마로 동방 예약 시스템</h1>
+    <div id='calendar'></div>
 </div>
 
 <script>
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'basicWeek, listWeek',
+        right: 'prev, today, next'
+      },
+      defaultView: 'basicWeek',
+      views: {
+        basicWeek: {
+          type: 'basicWeek',
+          buttonText: '주별보기'
+        },
+        listWeek: {
+          type: 'listWeek',
+          buttonText: '일정보기',
+          noEventsMessage: '등록된 일정이 없습니다'
+        }
+      },
+      height: 500
+    })
 
+  });
 </script>

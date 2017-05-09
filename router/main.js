@@ -13,7 +13,9 @@ module.exports = function(app, fs) {
     });
   });
 
-  app.get('/maro', function(req, res) {
-
+  app.get('/schedule', function(req, res) {
+    connection.query('select * from schedule', function (err, results, fields) {
+      res.json(results);
+    });
   });
 };

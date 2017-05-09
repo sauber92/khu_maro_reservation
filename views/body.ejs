@@ -1,5 +1,5 @@
 <div>
-    <h1>마로 동방 예약 시스템</h1>
+    <h1 class="text-center">마로 동방 예약 시스템</h1>
     <div id='calendar'></div>
 </div>
 
@@ -7,22 +7,48 @@
   $(document).ready(function() {
     $('#calendar').fullCalendar({
       header: {
-        left: 'basicWeek, listWeek',
+        left: 'agendaWeek, listWeek',
         right: 'prev, today, next'
       },
-      defaultView: 'basicWeek',
+      buttonText: {
+        today: '오늘'
+      },
+      defaultView: 'agendaWeek',
       views: {
-        basicWeek: {
-          type: 'basicWeek',
-          buttonText: '주별보기'
+        agendaWeek: {
+          type: 'agendaWeek',
+          buttonText: '주별보기',
+          allDaySlot: false,
+          slotLabelFormat: 'hha',
+          minTime: '16:00:00'
         },
         listWeek: {
           type: 'listWeek',
           buttonText: '일정보기',
-          noEventsMessage: '등록된 일정이 없습니다'
+          noEventsMessage: '등록된 일정이 없습니다',
+          timeFormat: 'HH:mm',
+          listDayAltFormat: 'M월 D일'
         }
       },
-      height: 500
+      monthNames: [
+        '1월', '2월', '3월', '4월', '5월', '6월',
+        '7월', '8월', '9월', '10월', '11월', '12월'
+      ],
+      dayNames: [
+        '일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'
+      ],
+      dayNamesShort: [
+        '일', '월', '화', '수', '목', '금', '토'
+      ],
+      height: 473,
+      eventSources: [
+        {
+          url: '/schedule',
+          type: 'GET',
+          color: '#aeff91',
+          textColor: 'black'
+        }
+      ]
     })
 
   });

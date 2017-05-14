@@ -1,6 +1,6 @@
 //! moment.js
 //! version : 2.18.1
-//! authors : Tim Wood, Iskren Chernev, Moment.app contributors
+//! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
 
@@ -2179,10 +2179,10 @@
   }
 
   hooks.createFromInputFallback = deprecate(
-    'value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to app Date(), ' +
+    'value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), ' +
     'which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are ' +
     'discouraged and will be removed in an upcoming major release. Please refer to ' +
-    'http://momentjs.com/guides/#/warnings/app-date/ for more info.',
+    'http://momentjs.com/guides/#/warnings/js-date/ for more info.',
     function (config) {
       config._d = new Date(config._i + (config._useUTC ? ' UTC' : ''));
     }

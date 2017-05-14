@@ -105,5 +105,5 @@ typings/
 .env
 
 
-config/password.js
 config/
+config/password.js

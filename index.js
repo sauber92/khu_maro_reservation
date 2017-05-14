@@ -11,4 +11,4 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use('/styles', express.static(__dirname + '/styles'));
-app.use('/app', express.static(__dirname + '/app'));
+app.use('/js', express.static(__dirname + '/js'));

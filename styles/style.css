@@ -8,3 +8,8 @@ html, body {
   margin-bottom: 25px;
   font-size: 30px;
 }
+
+.btn-register {
+  margin-top: 10px;
+  width: 100%;
+}

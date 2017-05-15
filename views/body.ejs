@@ -1,7 +1,7 @@
 <div class="container">
     <h1 class="text-center">마로 동방 예약 시스템</h1>
-    <div id='calendar'></div>
-    <button type="button" class="btn btn-primary btn-register">일정등록</button>
+    <div id="calendar"></div>
+    <button type="button" class="btn btn-danger btn-register">일정등록</button>
 </div>
 
 <script>
@@ -20,6 +20,7 @@
           type: 'agendaWeek',
           buttonText: '주별보기',
           allDaySlot: false,
+          columnFormat: 'MM/DD',
           slotLabelFormat: 'hha',
           minTime: '16:00:00'
         },
@@ -29,6 +30,13 @@
           noEventsMessage: '등록된 일정이 없습니다',
           timeFormat: 'HH:mm',
           listDayAltFormat: 'M월 D일'
+        }
+      },
+      viewRender: function(view, element){
+        if(view.name == "agendaWeek"){
+          $("#calendar").addClass('agenda-week');
+        }else{
+          $("#calendar").removeClass('agenda-week');
         }
       },
       monthNames: [
@@ -41,13 +49,14 @@
       dayNamesShort: [
         '일', '월', '화', '수', '목', '금', '토'
       ],
-      height: 473,
+      height: 430,
+      eventBackgroundColor: '#d9534f',
+      eventBorderColor: '#d9534f',
+      eventTextColor: 'black',
       eventSources: [
         {
           url: '/schedule',
-          type: 'GET',
-          color: '#aeff91',
-          textColor: 'black'
+          type: 'GET'
         }
       ]
     })

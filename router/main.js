@@ -2,6 +2,8 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var dbconfig = require('../config/password.js');
 var connection = mysql.createConnection(dbconfig);
+var passport = require('passport'), KakaoStrategy = require('passport-kakao').Strategy;
+var kakao = require('../config/kakao');
 
 module.exports = function(app, fs) {
   app.use(bodyParser.json());
@@ -18,4 +20,35 @@ module.exports = function(app, fs) {
       res.json(results);
     });
   });
+
+  app.get('/auth/login/kakao', passport.authenticate('kakao'));
+
+  app.get('/auth/login/kakao/callback', passport.authenticate('kakao', {
+      successRedirect: '/',
+      failureRedirect: '/auth/login/kakao'
+    })
+  );
 };
+
+passport.serializeUser(function (user, done) {
+  done(null, user)
+});
+
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+
+const isAuthenticated = function (req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+  res.redirect('/');
+};
+
+passport.use(new KakaoStrategy({
+    clientID: kakao.client_id,
+    callbackURL: kakao.callback_url
+  },
+  function() {
+
+  }
+));

@@ -24,6 +24,8 @@
     "fullcalendar": "^3.4.0",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
-    "mysql": "latest"
+    "mysql": "latest",
+    "passport": "^0.3.2",
+    "passport-kakao": "0.0.4"
   }
 }

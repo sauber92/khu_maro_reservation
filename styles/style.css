@@ -12,6 +12,7 @@ html, body {
 .btn-register {
   margin-top: 10px;
   width: 100%;
+  cursor: pointer;
 }
 
 #calendar {
@@ -124,4 +125,9 @@ html, body {
 
 #calendar .fc-list-heading .fc-widget-header {
   background-color: rgba(255, 227, 227, 0.8);
+}
+
+.btn-kakao span img {
+  width: 40px;
+  margin-top: -1px;
 }

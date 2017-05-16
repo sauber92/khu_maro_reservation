@@ -107,3 +107,4 @@ typings/
 
 config/
 config/password.js
+config/kakao.js

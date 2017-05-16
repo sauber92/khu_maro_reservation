@@ -1,10 +1,49 @@
 <div class="container">
     <h1 class="text-center">마로 동방 예약 시스템</h1>
     <div id="calendar"></div>
-    <button type="button" class="btn btn-danger btn-register">일정등록</button>
+    <button type="button" class="btn btn-danger btn-register" data-toggle="modal" data-target="#myModal">로그인 후 일정 등록하기</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">일정 등록</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/auth/login/kakao/callback" method="post" name="frm_login" id="frm_login">
+                        <div class="form-group">
+                            <a href="/auth/login/kakao" class="btn btn-block btn-social btn-kakao">
+                                <span><img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/></span>
+                                카카오 계정으로 로그인하기
+                            </a>
+                        </div>
+                    </form>
+
+                    <div class="form-group row">
+                        <label for="example-datetime-local-input" class="col-2 col-form-label">일정</label>
+                        <div class="col-10">
+                            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-danger">등록</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  });
+
   $(document).ready(function() {
     $('#calendar').fullCalendar({
       header: {
@@ -60,6 +99,5 @@
         }
       ]
     })
-
   });
 </script>
